@@ -1,1 +1,46 @@
+Reading symbols from a.out...
+(gdb) run
+Starting program: /home/a.out 
+
+Breakpoint 1, main () at main.c:22
+22       input(&base, &height);
+(gdb) step
+input (base=0x55555555533d <__libc_csu_init+77>, height=0x7fffffffebc6)
+    at main.c:3
+3       {
+(gdb) next
+4         printf ("enter the value of base and height\n");
+(gdb) next
+enter the value of base and height
+5         scanf ("%f%f", base, height);
+(gdb) next
+2
+2
+6       }
+(gdb) next
+main () at main.c:24
+24       find_area(base, height, &area);
+(gdb) step
+find_area (base=4.59163468e-41, height=-nan(0x7febcc), area=0x7fffffffebd0)
+    at main.c:9
+9       {
+(gdb) next
+10        *area = 0.5 * base * height;
+(gdb) next
+11      }
+(gdb) next
+main () at main.c:25
+25       output(base, height, area);
+(gdb) step
+output (base=2, height=2, area=4.59163468e-41) at main.c:15
+15      {
+(gdb) next
+16        printf
+(gdb) next
+Area of Triangle of base 2.000000 and height 2.000000 is 2.000000
+18      }
+(gdb) next
+main () at main.c:26
+26       return 0;
+
 
