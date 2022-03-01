@@ -1,1 +1,45 @@
+Reading symbols from a.out...
+(gdb) info break
 
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x000000000000127f in main at main.c:33
+(gdb) run
+Starting program: /home/a.out 
+
+Breakpoint 1, main () at main.c:33
+33          int n= input_number();
+(gdb) step
+input_number () at main.c:8
+8       {
+(gdb) next
+10          printf("enter the number \t");
+(gdb) next
+11          scanf("%d",&n);
+(gdb) next
+enter the number        8
+12          return n;
+(gdb) next
+13      }
+(gdb) next
+main () at main.c:34
+34          int composite= is_composite(n);
+(gdb) step
+is_composite (n=21845) at main.c:15
+15      {
+(gdb) next
+16          for(int i=2;i<=n/2;i++)
+(gdb) next
+18              if(n%i == 0)
+(gdb) next
+19              return 1;
+(gdb) next
+22      }
+(gdb) next
+main () at main.c:35
+35          output(n,composite);
+(gdb) next
+8 is a composite number
+36          return 0;
+(gdb) next
+37      }
+(gdb) 
