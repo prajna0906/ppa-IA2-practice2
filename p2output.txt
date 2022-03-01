@@ -1,1 +1,85 @@
+Reading symbols from a.out...
+(gdb) info break
+
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x000000000000127f in main at main.c:38
+
+(gdb) run
+Starting program: /home/a.out 
+
+Breakpoint 1, main () at main.c:38
+38          a=input_side();
+(gdb) step
+input_side () at main.c:13
+13      {
+(gdb) next
+15          printf("enter the side of triangle\t");
+(gdb) next
+16          scanf("%d", &n);
+(gdb) next
+enter the side of triangle      2
+17          return n;
+(gdb) next
+18      }
+(gdb) next
+main () at main.c:39
+39          b=input_side();
+(gdb) step
+input_side () at main.c:13
+13      {
+(gdb) next
+15          printf("enter the side of triangle\t");
+(gdb) next
+16          scanf("%d", &n);
+(gdb) next
+enter the side of triangle      3
+17          return n;
+(gdb) next
+18      }
+(gdb) next
+main () at main.c:40
+40          c=input_side();
+(gdb) step
+input_side () at main.c:13
+13      {
+(gdb) next
+15          printf("enter the side of triangle\t");
+(gdb) next
+16          scanf("%d", &n);
+(gdb) next
+enter the side of triangle      4
+17          return n;
+(gdb) next
+18      }
+(gdb) next
+main () at main.c:41
+41          isscalene=check_scalene(a,b,c);
+(gdb) step
+check_scalene (a=480328354, b=-876782336, c=4) at main.c:20
+20      {
+(gdb) next
+21          if (a!=b && b!=c &&a!=c)
+(gdb) next
+22          return 1;
+(gdb) next
+23      }
+(gdb) next
+main () at main.c:42
+42          output(a,b,c, isscalene);
+(gdb) step
+output (a=2, b=3, c=4, isscalene=-134508600) at main.c:25
+25      {
+(gdb) next
+26          if (isscalene == 1)
+(gdb) next
+28              printf("the triangle with sides %d,%d,%d is scalene \n",a,b,c);
+(gdb) next
+the triangle with sides 2,3,4 is scalene 
+34      }
+(gdb) next
+main () at main.c:43
+43          return 0;
+(gdb) next
+44      }
+(gdb) Quit
 
